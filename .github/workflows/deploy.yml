@@ -44,3 +44,4 @@ jobs:
             sudo docker rm -f $(sudo docker ps -q) || true
             sudo docker pull docker.io/${{ secrets.DOCKERHUB_USERNAME }}/jeffyz-site:latest
             sudo docker run -d -p 80:80 docker.io/${{ secrets.DOCKERHUB_USERNAME }}/jeffyz-site:latest
+
