@@ -26,9 +26,11 @@ jobs:
 
       - name: Build and Push Multi-Arch Image
         run: |
+          echo "Username=${{ secrets.DOCKERHUB_USERNAME }}"
+          docker buildx ls
           docker buildx build \
             --platform linux/amd64,linux/arm64 \
-            -t docker.io/${{ secrets.DOCKERHUB_USERNAME }}/jeffyz-site:latest \
+            -t ${{ secrets.DOCKERHUB_USERNAME }}/jeffyz-site:latest \
             --push .
 
       - name: Deploy on EC2 (pull + restart)
